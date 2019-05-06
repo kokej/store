@@ -1,0 +1,17 @@
+:host {
+    display: inline-block;
+    position: relative;
+    .mat-button {
+        height: 100%;
+        width: 100%;
+    }
+    .login-wrapper {
+        display: none;
+        &.visible {
+            display: flex;
+            flex-direction: column;
+        }
+        position: absolute;
+        right: 0;
+    }
+}

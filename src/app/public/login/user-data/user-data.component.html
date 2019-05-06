@@ -1,0 +1,13 @@
+<mat-list role="list">
+  <mat-list-item role="listitem">
+    <p>name:</p>
+    <h4>{{user.displayName || null}}</h4>
+  </mat-list-item>
+  <mat-list-item role="listitem">
+    <p>email:</p>
+    <h4>{{user.email}}</h4>
+  </mat-list-item>
+</mat-list>
+<div class="user-form-buttons">
+  <button mat-raised-button (click)="logoutUser()">Logout</button>
+</div>

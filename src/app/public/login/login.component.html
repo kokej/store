@@ -1,0 +1,21 @@
+<button mat-button (click)="showLogin = !showLogin">{{ userDetails ? userDetails.email : 'Login' }}</button>
+
+<mat-card class="login-wrapper" [class.visible]="showLogin">
+  <button mat-raised-button (click)="logoutUser()">Logout</button>
+  <div class="login-header" *ngIf="!userDetails; else userData">
+    <mat-tab-group>
+      <mat-tab label="Login">
+        <app-login-user (onComplete)="handleData($event)"></app-login-user>
+      </mat-tab>
+      <mat-tab label="Register">
+        <app-register (onComplete)="handleData($event)"></app-register>
+      </mat-tab>
+      <mat-tab label="Forgot Password">
+        <app-forgotten-password (onComplete)="handleData($event)"></app-forgotten-password>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+  <ng-template #userData>
+    <app-user-data [user]="userDetails" (onLogoutUser)="logoutUser()"></app-user-data>
+  </ng-template>
+</mat-card>
